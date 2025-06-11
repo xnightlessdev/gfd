@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/settings.css" />
     <link rel="stylesheet" type="text/css" href="/css/themes.css" />
     <link
@@ -23,31 +26,31 @@
         y.parentNode.insertBefore(t, y);
       })(window, document, "clarity", "script", "pwiasnexu5");
     </script>
-    <script src="/js/settings.js" defer></script>
-    <script src="/js/themes.js"></script>
     <title>Settings Panel</title>
   </head>
 
   <body>
     <div class="settings-container">
       <div class="panel" id="particles-settings">
-        <label for="particles-input">Tab Cloaking</label>
-        <input type="text" id="name-input" placeholder="Tab Name" />
-        <input type="text" id="icon-input" placeholder="Tab Icon" />
+        <label><i class="fas fa-mask"></i> Tab Cloaking</label>
+        <p class="description">Disguise your tab with a custom name and icon to blend in</p>
+        <input type="text" id="name-input" placeholder="Enter tab name..." />
+        <input type="text" id="icon-input" placeholder="Enter icon URL..." />
         <button
           type="button"
           onclick="setCloak(document.getElementById('name-input').value, document.getElementById('icon-input').value)"
         >
-          Save
+          <i class="fas fa-save"></i> Apply Cloak
         </button>
       </div>
 
       <div class="panel" id="themes-settings">
-        <label>Choose Theme</label>
+        <label><i class="fas fa-palette"></i> Theme Selection</label>
+        <p class="description">Choose your perfect visual experience</p>
         <select id="theme-select">
           <option value="default">Default</option>
           <option value="midnight">Midnight</option>
-          <option value="dark-cool">Dark</option>
+          <option value="dark-cool">Dark Cool</option>
           <option value="monochrome">Monochrome</option>
           <option value="night-neon">Night Neon</option>
           <option value="pastel-dark">Pastel Dark</option>
@@ -65,49 +68,51 @@
           <option value="rainbow">Rainbow!</option>
         </select>
         <button type="button" id="save-theme-button" onclick="saveTheme()">
-          Save Theme
+          <i class="fas fa-check"></i> Save Theme
         </button>
       </div>
 
       <div class="panel" id="close-settings">
-        <label for="image-url">Anti-Close</label>
+        <label><i class="fas fa-shield-alt"></i> Anti-Close Protection</label>
+        <p class="description">Prevent accidental tab closure</p>
         <p class="description" id="antiCloseStatus">
-          Current status:&NonBreakingSpace;
+          Current status: 
         </p>
         <button
           type="button"
           onclick="localStorage.setItem('closeProt', 'enabled'); top.onbeforeunload = function (e) { e.preventDefault(); return true; }; document.getElementById('antiCloseStatus').textContent = 'Current status: enabled'"
         >
-          Enable Anti-Close
+          <i class="fas fa-lock"></i> Enable Protection
         </button>
         <button
           type="button"
           onclick="localStorage.setItem('closeProt', 'disabled'); top.onbeforeunload = null; document.getElementById('antiCloseStatus').textContent = 'Current status: disabled'"
         >
-          Disable Anti-Close
+          <i class="fas fa-unlock"></i> Disable Protection
         </button>
       </div>
 
       <div class="panel" id="image-settings">
-        <label for="image-url">Plugins</label>
+        <label><i class="fas fa-puzzle-piece"></i> Plugin Manager</label>
         <p class="description">
-          Plugins are similar to Chrome extensions. You can enable and disable
-          them to change how the browser works!
+          Enhance your browsing experience with powerful extensions and plugins
         </p>
-        <button type="button">Edit Plugins</button>
+        <button type="button">
+          <i class="fas fa-cogs"></i> Manage Plugins
+        </button>
       </div>
 
       <div class="panel" id="background-settings">
-        <label>Upload Background</label>
+        <label><i class="fas fa-image"></i> Background Customization</label>
         <p class="description">
-          Provide the URL of the image you want to use as a background.
+          Upload and set your own custom background image
         </p>
         <button
           type="button"
           id="background-upload-button"
           onclick="document.getElementById('background-upload').click();"
         >
-          Choose a file
+          <i class="fas fa-upload"></i> Choose Image
         </button>
         <input
           type="file"
@@ -119,38 +124,60 @@
       </div>
 
       <div class="panel" id="panic-settings">
-        <label>Panic Key</label>
-        <p class="description">Press any key combination:</p>
-        <input type="text" id="panicKeybind" readonly />
+        <label><i class="fas fa-exclamation-triangle"></i> Emergency Panic Key</label>
+        <p class="description">Set a quick escape key combination</p>
+        <input type="text" id="panicKeybind" readonly placeholder="Click to set keybind..." />
         <button
           type="button"
           onclick="localStorage.setItem('panicKey', document.getElementById('panicKeybind').value)"
         >
-          Save
+          <i class="fas fa-save"></i> Save Panic Key
         </button>
       </div>
     </div>
 
     <script>
-      document.getElementById("name-input").value =
-        JSON.parse(localStorage.getItem("cloak"))["title"] ?? "Acceleration";
-      document.getElementById("icon-input").value =
-        JSON.parse(localStorage.getItem("cloak"))["icon"] ?? "/favicon.ico";
+      // Load saved settings
+      const savedCloak = localStorage.getItem("cloak");
+      if (savedCloak) {
+        try {
+          const cloakData = JSON.parse(savedCloak);
+          document.getElementById("name-input").value = cloakData.title || "Acceleration";
+          document.getElementById("icon-input").value = cloakData.icon || "/favicon.ico";
+        } catch (e) {
+          document.getElementById("name-input").value = "Acceleration";
+          document.getElementById("icon-input").value = "/favicon.ico";
+        }
+      } else {
+        document.getElementById("name-input").value = "Acceleration";
+        document.getElementById("icon-input").value = "/favicon.ico";
+      }
+
       document.getElementById("panicKeybind").value =
-        localStorage.getItem("panicKey") ?? "Shift+~";
+        localStorage.getItem("panicKey") || "Shift+~";
       document.getElementById("antiCloseStatus").innerText +=
-        localStorage.getItem("closeProt") ?? "disabled";
+        localStorage.getItem("closeProt") || "disabled";
       document.getElementById("theme-select").value =
-        localStorage.getItem("theme") ?? "default";
+        localStorage.getItem("theme") || "default";
+
+      // Load theme on page load
+      const savedTheme = localStorage.getItem("theme") || "default";
+      if (typeof loadTheme === 'function') {
+        loadTheme(savedTheme);
+      } else {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
 
       const panicKeybindInput = document.getElementById("panicKeybind");
 
       panicKeybindInput.addEventListener("focus", () => {
         document.addEventListener("keydown", handlepanicKeybindInput);
+        panicKeybindInput.placeholder = "Press any key combination...";
       });
 
       panicKeybindInput.addEventListener("blur", () => {
         document.removeEventListener("keydown", handlepanicKeybindInput);
+        panicKeybindInput.placeholder = "Click to set keybind...";
       });
 
       function handlepanicKeybindInput(event) {
@@ -167,11 +194,26 @@
         panicKeybindInput.value = panicKeybind;
       }
 
-      function saveTheme(
-        theme = document.getElementById("theme-select").value
-      ) {
+      function saveTheme(theme = document.getElementById("theme-select").value) {
         localStorage.setItem("theme", theme);
-        loadTheme(theme);
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+
+      function setCloak(title, icon) {
+        localStorage.setItem("cloak", JSON.stringify({ title, icon }));
+        document.title = title;
+        const favicon = document.querySelector('link[rel="icon"]') || document.createElement('link');
+        favicon.rel = 'icon';
+        favicon.href = icon;
+        document.head.appendChild(favicon);
+      }
+
+      function updateButtonText() {
+        const fileInput = document.getElementById('background-upload');
+        const button = document.getElementById('background-upload-button');
+        if (fileInput.files.length > 0) {
+          button.innerHTML = `<i class="fas fa-check"></i> ${fileInput.files[0].name}`;
+        }
       }
     </script>
   </body>
