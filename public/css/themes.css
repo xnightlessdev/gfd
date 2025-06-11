@@ -1,0 +1,229 @@
+:root {
+    --primary-color: #fff;
+
+    --secondary-color: rgba(255, 255, 255, 0.7);
+
+    --background-gradient: #1f093b , #000000;
+
+    --background-color: #181818;
+
+
+    --border-color: #2c2f38;
+
+    --icon-color: #ccc;
+
+}
+
+
+:root.midnight {
+    --primary-color: #ecf0f1;
+
+    --secondary-color: rgba(236, 240, 241, 0.7);
+
+    --background-gradient: #2c3e50, #020407;
+
+    --background-color: #2c3e50;
+
+    --highlight-color: #2e4761;
+
+    --border-color: black;
+
+    --icon-color: #ccc;
+
+}
+
+
+:root.dark-cool {
+    --primary-color: #fff;
+
+    --secondary-color: rgba(255, 255, 255, 0.7);
+
+    --background-gradient: #121212, #110c1b;
+
+    --background-color: #121212;
+
+    --highlight-color: rgb(97, 123, 146);
+
+    --border-color: #444;
+
+    --icon-color: #bbb;
+
+}
+
+
+:root.monochrome {
+    --primary-color: #fff;
+
+    --secondary-color: rgba(255, 255, 255, 0.5);
+
+    --background-gradient: #000, #201c1c;
+
+    --background-color: #000;
+
+    --highlight-color: #808080;
+
+    --border-color: #333;
+
+    --icon-color: #bbb;
+
+}
+
+
+:root.night-neon {
+    --primary-color: #fff;
+
+    --secondary-color: rgba(255, 255, 255, 0.7);
+
+    --background-gradient: #0c0c0c, #1b291b;
+
+    --background-color: #0c0c0c;
+
+    --highlight-color: #39ff14;
+
+    --border-color: #222;
+
+    --icon-color: #c1eeb9;
+
+}
+
+
+:root.pastel-dark {
+    --primary-color: #fff;
+
+    --secondary-color: rgba(255, 255, 255, 0.7);
+
+    --background-gradient: #2e2d28, #3a3611;
+
+    --background-color: #2e2d28;
+
+    --highlight-color: #f5a623;
+
+    --border-color: #3e3e3e;
+
+    --icon-color: #f5a623;
+}
+
+:root.hacker {
+    --primary-color: #00ff00;
+    --secondary-color: rgba(0, 255, 0, 0.7);
+    --highlight-color: #00ff00;
+    --background-gradient: #1c1c1c, #2c382b;
+    --background-color: #1c1c1c;
+    --icon-color: #ccc;
+}
+
+
+:root.oceanic {
+    --primary-color: #00aaff;
+    --secondary-color: rgba(0, 170, 255, 0.7);
+    --highlight-color: #0077cc;
+    --background-gradient: #002233, #0c384e;
+    --background-color: #002233;
+    --border-color: #004455;
+    --icon-color: #88ccff;
+}
+
+:root.galaxy {
+    --primary-color: #8a2be2;
+    --secondary-color: rgba(138, 43, 226, 0.7);
+    --highlight-color: #6a0dad;
+    --background-gradient: #1c0033, #170b20;
+    --background-color: #1c0033;
+    --border-color: #330066;
+    --icon-color: #c3a6ff;
+}
+
+:root.gaming {
+    --primary-color: #ff4500;
+    --secondary-color: rgba(255, 69, 0, 0.7);
+    --highlight-color: #e03a00;
+    --background-gradient: #160000, #1a1a1a;
+    --background-color: #1a1a1a;
+
+    --border-color: #333333;
+    --icon-color: #ff9e80;
+}
+
+:root.cyberpunk {
+    --primary-color: #ff00ff;
+    --secondary-color: rgba(255, 0, 255, 0.7);
+    --highlight-color: #d400d4;
+    --background-gradient: #410c41, #1a001a;
+    --background-color: #1a001a;
+
+    --border-color: #330033;
+    --icon-color: #ff80ff;
+}
+
+:root.techno {
+    --primary-color: #00ffff;
+    --secondary-color: rgba(0, 255, 255, 0.7);
+    --highlight-color: #00cccc;
+    --background-gradient: #033131, #011616;
+    --background-color: #001f1f;
+
+    --border-color: #003333;
+    --icon-color: #80ffff;
+}
+
+:root.crimson {
+    --primary-color: #dc143c;
+    --secondary-color: rgba(220, 20, 60, 0.7);
+    --highlight-color: #b01030;
+    --background-gradient: #4d0505, #160202;
+    --background-color: #330000;
+
+    --border-color: #660000;
+    --icon-color: #ff8a8a;
+}
+
+:root.halloween {
+    --primary-color: #ff7518;
+    --secondary-color: rgba(255, 117, 24, 0.7);
+    --highlight-color: #cc5f14;
+    --background-gradient: #3d2823, #2c140d;
+    --background-color: #1a1a1a;
+
+    --border-color: #333333;
+    --icon-color: #ffe3b3;
+}
+
+:root.noctura {
+    --primary-color: #4e4ef7;
+    --secondary-color: rgba(138, 138, 216, 0.815);
+    --highlight-color: rgb(37, 37, 231);
+    --background-gradient: #26264d, #19192e;
+    --background-color: #0d0d1a;
+    --border-color: #1a1a4d;
+    --icon-color: #6666ff;
+}
+
+:root.sapphire {
+    --primary-color: #0f52ba;
+    --secondary-color: rgba(15, 82, 186, 0.7);
+    --highlight-color: #0d47a1;
+    --background-gradient: #001a33, #001a33;
+    --background-color: #001a33;
+    --border-color: #003366;
+    --icon-color: #80bfff;
+}
+
+:root.fire {
+    --primary-color: #ff4500;
+    --secondary-color: rgba(255, 69, 0, 0.7);
+    --highlight-color: #e03a00;
+    --background-gradient: #440808, #1f0101;
+    --background-color: #330000;
+    --border-color: #660000;
+    --icon-color: #ffa07a;
+}
+
+:root.rainbow{
+    --primary-color: #ff0000;
+    --secondary-color: rgb(255, 128, 0);
+    --highlight-color: #e0d800;
+    --background-gradient: #26ff00, #00ffd5;
+    --background-color: #001aff;
+    --border-color: #7b00ff;
+    --icon-color: #ff0000;
+}
