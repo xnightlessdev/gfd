@@ -138,7 +138,6 @@
     </div>
 
     <script>
-      // Load saved cloak info or set defaults
       const savedCloak = localStorage.getItem("cloak");
       if (savedCloak) {
         try {
@@ -160,7 +159,6 @@
       const antiCloseStatus = document.getElementById("antiCloseStatus");
       antiCloseStatus.innerText += localStorage.getItem("closeProt") || "disabled";
 
-      // Theme handling
       function loadTheme(theme) {
         document.documentElement.setAttribute("data-theme", theme);
         const select = document.getElementById("theme-select");
@@ -178,7 +176,6 @@
         loadTheme(savedTheme);
       });
 
-      // Panic keybind input handling
       panicKeyInput.addEventListener("focus", () => {
         document.addEventListener("keydown", handlepanicKeybindInput);
         panicKeyInput.placeholder = "Press any key combination...";
