@@ -1,9 +1,9 @@
 function loadTheme(theme = localStorage.getItem("theme") || "default") {
-    document.documentElement.className = "";
+    const currentTheme = Array.from(document.documentElement.classList).find(cls => cls !== "lang");
+    if (currentTheme) document.documentElement.classList.remove(currentTheme);
     document.documentElement.classList.add(theme);
-    document.documentElement.style.display = "none";
-    document.documentElement.offsetHeight;
-    document.documentElement.style.display = "";
 }
 
-document.addEventListener
+document.addEventListener("DOMContentLoaded", () => {
+    loadTheme();
+});
