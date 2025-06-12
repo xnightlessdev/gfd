@@ -1,15 +1,7 @@
-
-function loadTheme(theme = localStorage.getItem("theme")) {
-  if (theme) {
+function loadTheme(theme = localStorage.getItem("theme") || "default") {
     document.documentElement.className = theme;
-  } else {
-    document.documentElement.className = ""; 
-  }
 }
 
-function saveTheme(theme) {
-  localStorage.setItem("theme", theme);
-  document.documentElement.className = theme;
-}
-
-loadTheme();
+document.addEventListener("DOMContentLoaded", () => {
+    loadTheme();
+});
