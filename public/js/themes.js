@@ -1,5 +1,7 @@
-function loadTheme(theme = localStorage.getItem("theme")) {
+function loadTheme(theme = localStorage.getItem("theme") || "default") {
     document.documentElement.className = theme;
 }
 
-loadTheme();
+document.addEventListener("DOMContentLoaded", () => {
+    loadTheme();
+});
