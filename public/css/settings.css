@@ -1,4 +1,20 @@
 body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1f1f1f 100%);
+    color: #ffffff;
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+.settings-container {
+    max-width: 1400px;
+    margin: 100px auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+body {
     background: var(--background-gradient);
     color: var(--primary-color);
 }
