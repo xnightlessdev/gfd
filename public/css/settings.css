@@ -16,12 +16,7 @@ body {
     padding: 20px 0;
 }
 
-.panel,
-#particles-settings,
-#themes-settings,
-#close-settings,
-#image-settings,
-#background-settings,
+
 #panic-settings {
     background: linear-gradient(145deg, #2a2a2a, #3a3a3a);
     padding: 25px;
